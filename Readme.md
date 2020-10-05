@@ -1,12 +1,12 @@
 ## WiFace
 
-WiFace, a MATLAB application in Ubuntu 14.04 system that detects and recognize user facial expressions (e.g., happy, fearful, surprised, happily surprised, angrily surprised, fearfully surprised) using Channel State Information (CSI) for Human Computer Interface. Paper [WiFace: Facial Expression Recognition Using Wi-Fi Signals](https://ieeexplore.ieee.org/abstract/document/9115830) is published in IEEE [Transactions on Mobile Computing (TMC)](https://www.computer.org/csdl/journal/tm) (2020 Early access)
+WiFace, a MATLAB application in Ubuntu 14.04 system that detects and recognize user facial expressions (e.g., happy, fearful, surprised, happily surprised, angrily surprised, fearfully surprised) using Channel State Information (CSI) for Human Computer Interface. Paper [WiFace: Facial Expression Recognition Using Wi-Fi Signals⬀](https://ieeexplore.ieee.org/abstract/document/9115830) is published in IEEE [Transactions on Mobile Computing (TMC)⬀](https://www.computer.org/csdl/journal/tm) (2020 Early access)
 
 Todo list:
 
 - [ ] result part
 - [ ] a figure of real-time processing
-- [ ] train data of the users
+- [x] train data of the users
 - [ ] add the WiBlink application for counting
 
 [TOC]
@@ -15,14 +15,14 @@ Todo list:
 
 ##Environment Requirement
 
-WiFace is tested on **Ubuntu 14.04 LTS** and **MATLAB 2018a** with a Thinkpad X200 equipped with an Intel Wi-Fi Link 5300 NIC. According to [Linux 802.11n CSI Tool - Installation Instructions](https://dhalperi.github.io/linux-80211n-csitool/installation.html) and the latest MATLAB function used in scripts (hampel.m), the system and software requirements are:
+WiFace is tested on **Ubuntu 14.04 LTS** and **MATLAB 2018a** with a Thinkpad X200 equipped with an Intel Wi-Fi Link 5300 NIC. According to [Linux 802.11n CSI Tool - Installation Instructions⬀](https://dhalperi.github.io/linux-80211n-csitool/installation.html) and the latest MATLAB function used in scripts (hampel.m), the system and software requirements are:
 
 1. Linux kernel version: 3.2 ~ 4.2 (e.g., Ubuntu 12.04 ~ 14.04.4)
 2. Matlab 2015b and later
 
 ## Install Linux 802.11n CSI Tool
 
-For 802.11n CSI Tool, please refer to [Linux 802.11n CSI Tool - Installation Instructions](https://dhalperi.github.io/linux-80211n-csitool/installation.html) and follow the step-by-step instructions (while you can skip the commands in Tips).
+For 802.11n CSI Tool, please refer to [Linux 802.11n CSI Tool - Installation Instructions⬀](https://dhalperi.github.io/linux-80211n-csitool/installation.html) and follow the step-by-step instructions (while you can skip the commands in Tips).
 
 After a succcessful try on logging the CSI data using
 
@@ -30,7 +30,7 @@ After a succcessful try on logging the CSI data using
 sudo linux-80211n-csitool-supplementary/netlink/log_to_file csi.dat
 ```
 
-we can extract the CSI data from Intel 5300 NIC now. Compile my modified log_to_file_online.c (that communicates with MATLAB script and records CSI data into hard disk via **write through** method) to an executable file using gcc
+we can extract the CSI data from Intel 5300 NIC now. Compile my modified [log_to_file_online.c](./CSITool_Matlab/log_to_file_online.c) (that communicates with MATLAB script and records CSI data into hard disk via **write through** method) to an executable file using gcc
 
 ```shell
 $ sudo cp ./data_collecting/log_to_file_online6.c ~/linux-80211n-csitool-supplementary/netlink/log_to_file_online.c
@@ -38,7 +38,7 @@ $ cd ~/linux-80211n-csitool-supplementary/netlink/
 $ gcc log_to_file_online.c -o log_to_file_online
 ```
 
-now we can use the log_to_file_online to log the CSI data into hard disk in real-time. (use 'nice -n ' with negitive number to raise the priority of the script)
+now we can use the executable file (log_to_file_online) to log the CSI data into hard disk in real-time. (use 'nice -n ' with negitive number to raise the priority of the script)
 
 ```shell
 $ sudo nice -n -10 linux-80211n-csitool-supplementary/netlink/log_to_file [your path on logging file]/test01.dat
@@ -68,7 +68,7 @@ for i = 1:len
 end
 ```
 
-We modified the read_bf_file.m as [read_bf_file_online.m](/CSITool_Matlab/read_bf_file_online.m), which return the file cursor of the last legal CSI packet for real-time processing. Don forget to adjust the com_file to communicate with log_to_file_online.  When we run the [data_processing_online.m](./data_processing_online.m) script, it will monitor the new file from the com_file and show the preprocessed CSI magnitude of last 5 seconds.
+We modified the read_bf_file.m as [read_bf_file_online.m](/CSITool_Matlab/read_bf_file_online.m), which return the file cursor of the last legal CSI packet for real-time processing. Don forget to adjust the com_file to communicate with log_to_file_online.  When we run the [data_processing_online.m](./Code/data_processing_online.m) script, it will monitor the new file from the com_file and show the preprocessed CSI magnitude of last 5 seconds.
 
 Then we can simulate the network communication (e.g., ping the router) in one terminal (positive number of nice will reduce the priority to occupy less resource of computer)
 
@@ -86,11 +86,15 @@ $ sudo nice -n -10 sudo linux-80211n-csitool-supplementary/netlink/log_to_file_o
 
 
 
-After the progress of WiFace, we also try to detect the blinking of the user, although the resolution is far from detecting such subtle movements. We will share the UI for manully labeling actions while recording CSI data.
+We use the [facial_expression_v5.m](./Code/facial_expression_v5.m) scrpit to process and extract the facial expression data. It requires to read the file information in [file2](./Data/WiFace_0907_Runmin_Ou_90cm/file2) including 1.File name; 2. Total time; 3. Start timestamp; 4. Ending timestamp 5. (optional) Unused antenna (0 to use all the antennas) 6. (optional) Expression count (ground truth). 
+
+However, we need to record of the file information manully. After the project of WiFace, our ongoing project is to detect the eye blinking of the user, although the resolution is far from detecting such subtle movements. We share the UI for manully labeling actions while recording CSI data. It can help us to record the information easily. 
+
+
 
 ## Results
 
-We use the [facial_expression_v5.m](./facial_expression_v5.m) scrpit to process and extract the facial expression data, including 
+
 
 
 

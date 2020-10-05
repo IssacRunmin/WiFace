@@ -1,16 +1,16 @@
 %File Total Start End Antenna Count
-%Happy01 272.404 163.6 270 2 30
-Happy02 282.349 80 275 4 50
+%Happy01 272.404 163.6 270 0 30
+Happy02 282.349 80 275 0 50
 
-%Fearful01 373.469 300 364 3 30
-Fearful02 409.453 191 402.2 3 50
+%Fearful01 373.469 300 364 0 30
+Fearful02 409.453 191 402.2 0 50
 
-%Surprised01 211.381 41.3 125 0 27
-Surprised02 283.455 60 280 2 50
+Surprised01 211.381 41.3 125 0 27
+Surprised02 283.455 60 280 0 50
 
-HappilySurprised01 275 60 272 2 50
+HappilySurprised01 275 60 272 0 50
 
-AngrilySurprised01 316.02 60 306 3 50
+AngrilySurprised01 316.02 60 306 0 50
 
-FearfullySurprised01 249.441 129.3 230 2 25
-FearfullySurprised02 122.056 26 116 3 25
+FearfullySurprised01 249.441 129.3 230 0 25
+FearfullySurprised02 122.056 26 116 0 25

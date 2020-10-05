@@ -1,4 +1,4 @@
-function [feature_num] = orm_data_processing_online6()
+function [feature_num] = data_processing_online()
 % version 6.0: you can combine any preprocessing method of the data.
 % version 5.0: just run once and you can see the continous files.
 % Please run this function first and then run log_file_online5 relevant
