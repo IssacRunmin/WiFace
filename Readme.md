@@ -4,21 +4,31 @@ WiFace, a MATLAB application in Ubuntu 14.04 system that detects and recognize u
 
 Todo list:
 
-- [ ] result part
-- [ ] a figure of real-time processing
 - [x] train data of the users
-- [ ] add the WiBlink application for counting
+- [ ] A figure of real-time processing
+- [ ] Discription and figures of the result part
+- [ ] Introduce WiBlink Application for real-time processing
 
-[TOC]
+Contents:
+
+* [Environment Requirement](#environment-requirement)
+* [Install Linux 802.11n CSI Tool](#install-linux-80211n-csi-tool)
+* [Real-time data processing](#real-time-data-processing)
+* [Results](#results)
+* [Trouble shooting](#trouble-shooting)
 
 <img src="./Figs/SystemOverview.png" alt="System overview" width="500"/>
+
+Fig. 1. System overview
 
 ## Environment Requirement
 
 WiFace is tested on **Ubuntu 14.04 LTS** and **MATLAB 2018a** with a Thinkpad X200 equipped with an Intel Wi-Fi Link 5300 NIC. According to [Linux 802.11n CSI Tool - Installation Instructions⬀](https://dhalperi.github.io/linux-80211n-csitool/installation.html) and the latest MATLAB function used in scripts (hampel.m), the system and software requirements are:
 
-1. Linux kernel version: 3.2 ~ 4.2 (e.g., Ubuntu 12.04 ~ 14.04.4)
-2. Matlab 2015b and later
+1. Hardware: Intel Wi-Fi Link 5300 Wireless NIC
+2. Linux kernel version: 3.2 ~ 4.2 (e.g., Ubuntu 12.04 ~ 14.04.4)
+3. Linux 802.11n CSI Tool
+4. Matlab 2015b and later
 
 ## Install Linux 802.11n CSI Tool
 
@@ -94,6 +104,16 @@ However, we need to record of the file information manully. After the project of
 
 ## Results
 
+Here are some result figures in our paper:
+
 <img src="./Figs/all_acc_v3.pdf" alt="Accuracy of all user" width="500"/>
 
+Fig. 14. Recognition accuracy for different users. 
+
+<img src="./Figs/all_confusion_v3.pdf" alt="Confusion matrix" width="500"/>
+
+Fig. 15. Overall confusion matrix. The class number 1- 6 refer to happy, fearful, surprised, happily surprised, angrily surprised and fearfully surprised respectively. 
+
 ## Trouble shooting
+
+TBC

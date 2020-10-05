@@ -6,6 +6,6 @@
 
 # CSI data
 **/csi
-**/Figs
+./Data/**/Figs
 
 
