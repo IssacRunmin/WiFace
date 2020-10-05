@@ -13,7 +13,7 @@ Todo list:
 
 <img src="./Figs/SystemOverview.png" alt="System overview" width="500"/>
 
-##Environment Requirement
+## Environment Requirement
 
 WiFace is tested on **Ubuntu 14.04 LTS** and **MATLAB 2018a** with a Thinkpad X200 equipped with an Intel Wi-Fi Link 5300 NIC. According to [Linux 802.11n CSI Tool - Installation Instructions⬀](https://dhalperi.github.io/linux-80211n-csitool/installation.html) and the latest MATLAB function used in scripts (hampel.m), the system and software requirements are:
 
@@ -88,14 +88,12 @@ $ sudo nice -n -10 sudo linux-80211n-csitool-supplementary/netlink/log_to_file_o
 
 We use the [facial_expression_v5.m](./Code/facial_expression_v5.m) scrpit to process and extract the facial expression data. It requires to read the file information in [file2](./Data/WiFace_0907_Runmin_Ou_90cm/file2) including 1.File name; 2. Total time; 3. Start timestamp; 4. Ending timestamp 5. (optional) Unused antenna (0 to use all the antennas) 6. (optional) Expression count (ground truth). 
 
-However, we need to record of the file information manully. After the project of WiFace, our ongoing project is to detect the eye blinking of the user, although the resolution is far from detecting such subtle movements. We share the UI for manully labeling actions while recording CSI data. It can help us to record the information easily. 
+However, we need to record of the file information manully. After the project of WiFace, our ongoing project is to detect the eye blinking of the user, although the resolution is far from detecting such subtle movements. We share the UI for counting actions while recording the CSI data. It can help us to record the information easily. 
 
-
+<img src="./Figs/WiBlinkApp.png" alt="WiBlink Application" width="500"/>
 
 ## Results
 
-
-
-
+<img src="./Figs/all_acc_v3.pdf" alt="Accuracy of all user" width="500"/>
 
 ## Trouble shooting
