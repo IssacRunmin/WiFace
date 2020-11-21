@@ -111,7 +111,7 @@ Here are some result figures in our paper:
 
 Fig. 14. Recognition accuracy for different users. 
 
-<img src="./Figs/all_confusion_v3.pdf" alt="Confusion matrix" width="500"/>
+<img src="./Figs/all_confusion_v3.png" alt="Confusion matrix" width="500"/>
 
 Fig. 15. Overall confusion matrix. The class number 1- 6 refers to happy, fearful, surprised, happily surprised, angrily surprised, and fearfully surprised respectively. 
 
