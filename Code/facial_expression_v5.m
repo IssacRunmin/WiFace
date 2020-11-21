@@ -57,6 +57,7 @@ Expressions = {'Happy';
     'FearfullySurprised'};
 %% 2. Initialization
 file_dir= fullfile('..', 'Data');
+addpath(fullfile('..','CSITool_Matlab'));
 dirs = dir(fullfile(file_dir,'WiFace*'));
 if length(files) > 1
     file_choice = 0;
@@ -141,7 +142,7 @@ for dir_i = 1 : length(files)
     for File = 1:file_count
         try
             file_path = fullfile(file_directory, 'csi', [file_info{1,File}, '.mat']);
-            file_information = sprintf('File: %s-%02d-%.3f-%.3f', file_info{1, File},...
+            file_information = sprintf('File: %s-%.3f-%.3f', file_info{1, File},...
                 file_info{3, File}, file_info{4, File});
             if debug.disp
                 disp(file_information);
