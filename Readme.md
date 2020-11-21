@@ -66,7 +66,7 @@ savepath('CSITool_Matlab'); % permanently
 Using the [read_bf_file.m](./CSITool_Matlab/read_bf_file.m) we can read the channel state information traces. With other scripts in CSITool_Matlab, we can get the CSI data (in IQ domain) like this:
 
 ```matlab
-file_name = './test.dat';
+file_name = './Data/WiFace_0907_Runmin_Ou_90cm/Surprised01.dat'; # current dir: WiFace
 CSI_trace = read_bf_file(file_name);
 len = size(CSI_trace, 1);
 csi_data = zeros(30, len, 3);
@@ -76,6 +76,7 @@ for i = 1:len
 	csi = squeeze(csi(1, :, :)).';
 	csi_data(:, i, :) = csi;
 end
+# It takes long, about 2 min
 ```
 
 We modified the read_bf_file.m as [read_bf_file_online.m](/CSITool_Matlab/read_bf_file_online.m), which return the file cursor of the last legal CSI packet for real-time processing. Don forget to adjust the com_file to communicate with log_to_file_online.  When we run the [data_processing_online.m](./Code/data_processing_online.m) script, it will monitor the new file from the com_file and show the preprocessed CSI magnitude of last 5 seconds.
@@ -106,7 +107,7 @@ However, we need to record the file information manually. After the project of W
 
 Here are some result figures in our paper:
 
-<img src="./Figs/all_acc_v3.pdf" alt="Accuracy of all user" width="500"/>
+<img src="./Figs/all_acc_v3.jpg" alt="Accuracy of all user" width="500"/>
 
 Fig. 14. Recognition accuracy for different users. 
 
